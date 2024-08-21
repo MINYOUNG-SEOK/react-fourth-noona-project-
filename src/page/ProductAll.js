@@ -5,7 +5,6 @@ import { useSearchParams } from "react-router-dom";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { text } from "@fortawesome/fontawesome-svg-core";
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
@@ -46,23 +45,23 @@ const ProductAll = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // 자동 슬라이드 속도
+    autoplaySpeed: 2500, // 자동 슬라이드 속도
     cssEase: "linear", // 전환 애니메이션을 선형으로 변경하여 더 부드럽게 전환
   };
 
   const slides = [
     {
       img: "https://image.hm.com/content/dam/global_campaigns/season_00/home/7000b/7000B-1x1-lego-hm-home-collection-kids-room-decor.jpg?imwidth=1536",
-      text: "New Kids Room"
+      text: "New Kids Room",
     },
     {
       img: "https://image.hm.com/content/dam/global_campaigns/season_00/ladies/ws40h/WS40H_1x1-1.jpg?imwidth=1536",
-      text: "Vintage Blue & Decoration details"
+      text: "Vintage Blue & Decoration details",
     },
     {
       img: "https://image.hm.com/content/dam/global_campaigns/season_00/kids/4080n/4080N-1x1-1-refined-playful.jpg?imwidth=1536",
-      text: "F/W 2024 Kids Style"
-    }
+      text: "F/W 2024 Kids Style",
+    },
   ];
   return (
     <div>

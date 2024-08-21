@@ -13,6 +13,8 @@ const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState(null);
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
+  const [loading, setLoading] = useState(true);
+
   const getProductDetail = async () => {
     let url = `http://localhost:5005/products/${id}`;
     let response = await fetch(url);
@@ -20,6 +22,7 @@ const ProductDetail = () => {
     console.log(data);
     setProduct(data);
     setLiked(isFavorite(data.id));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -39,8 +42,12 @@ const ProductDetail = () => {
     setLiked(!liked);
   };
 
+  if (loading) {
+    return <div>로딩 중...</div>;
+  }
+
   if (!product) {
-    return <div>잠시만 기다려주세요...</div>;
+    return <div>상품 정보를 불러올 수 없습니다.</div>;
   }
 
   return (

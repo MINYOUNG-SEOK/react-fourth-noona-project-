@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useFavorites } from "../context/FavoritesContext";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import "./Favorites.css";
 
 const Favorites = () => {
@@ -10,23 +8,17 @@ const Favorites = () => {
   const navigate = useNavigate();
   const [selectedSizes, setSelectedSizes] = useState({});
 
-
-
-  
-
   const showDetail = (id) => {
-    if (id) { // id가 있는 경우에만 navigate
+    if (id) {
       navigate(`/product/${id}`);
     } else {
       console.error("Invalid product ID");
     }
   };
   const handleRemove = (event, id) => {
-    event.stopPropagation(); // 이벤트 전파 막기
+    event.stopPropagation();
     removeFavorite(id);
   };
-
-  
 
   const handleAddToCart = (id) => {
     // 장바구니에 추가하는 로직
@@ -56,10 +48,10 @@ const Favorites = () => {
                 className="remove-button"
                 onClick={(event) => handleRemove(event, item.id)}
               >
-                <img 
-                  src="/img/trash-icon.png" 
-                  alt="Remove" 
-                  className="trash-icon" 
+                <img
+                  src="/img/trash-icon.png"
+                  alt="Remove"
+                  className="trash-icon"
                 />
               </button>
             </div>

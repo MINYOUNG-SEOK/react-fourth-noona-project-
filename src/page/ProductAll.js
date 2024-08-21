@@ -15,7 +15,7 @@ const ProductAll = () => {
 
   useEffect(() => {
     fetch(
-      " https://my-json-server.typicode.com/MINYOUNG-SEOK/react-fourth-noona-project-/products"
+      "https://my-json-server.typicode.com/MINYOUNG-SEOK/react-fourth-noona-project-/products"
     )
       .then((response) => response.json())
       .then((data) => {

@@ -31,6 +31,8 @@
   margin: 0;
   font-size: 20px;
   font-weight: 400;
+  flex-grow: 1;
+  /* 상품명이 남은 공간을 차지하도록 설정 */
 }
 
 .like-button {
@@ -137,18 +139,21 @@
   }
 
   .product-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .product-header h2 {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
+    flex-grow: 1;
   }
 
   .like-button {
     font-size: 1.5em;
-    margin-left: 0;
+    margin-left: 10px;
+    align-self: flex-end;
   }
 
   .product-info .price {

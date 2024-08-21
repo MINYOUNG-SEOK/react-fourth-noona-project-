@@ -1,3 +1,33 @@
+.navbar {
+    width: 100%;
+    position: relative;
+}
+
+.top-left-nav {
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    padding: 10px 20px;
+}
+
+.left-links {
+    list-style-type: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    color: #333;
+}
+
+.left-links li {
+    cursor: pointer;
+}
+
+.left-links li:hover {
+    text-decoration: underline;
+}
+
 .logo-area {
     display: flex;
     justify-content: center;
@@ -36,12 +66,10 @@
 }
 
 .search-area {
-    position: absolute;
-    right: 40px;
     display: flex;
     align-items: center;
+    position: relative; /* 아이콘과 input을 쉽게 배치하기 위해 relative 사용 */
 }
-
 
 .search-input {
     padding-left: 30px;
@@ -51,6 +79,7 @@
     background-color: transparent;
     width: 150px;
 }
+
 
 .search-input:focus {
     outline: none;
@@ -72,26 +101,19 @@
 .header-icons {
     display: flex;
     justify-content: flex-end;
-    margin: 20px;
-    font-size: 15px;
+    margin-top: 40px;
 }
-
-.header-icon {
-    font-size: 20px;
-    font-weight: 300;
-}
-
 
 .header-icons>div {
     font-size: 13px;
     display: flex;
     align-items: center;
-    margin-right: 30px;
+    margin-right: 20px;
     cursor: pointer;
 }
 
 .icon-label {
-    margin-left: 7px;
+    margin-left: 5px;
     border-bottom: 1px solid transparent;
 }
 
@@ -105,3 +127,4 @@
     align-items: center;
     font-size: 13px;
 }
+

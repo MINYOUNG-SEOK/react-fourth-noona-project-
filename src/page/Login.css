@@ -1,13 +1,19 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
 .login-container {
   width: 700px;
   margin: 50px auto;
   padding: 20px;
   border-top: 1px solid #eee;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .login-header {
-  flex-direction: column;
   align-items: center;
 }
 
@@ -18,7 +24,7 @@
 
 .login-subtext {
   margin: 10px 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #555;
 }
 
@@ -45,36 +51,29 @@
   color: red;
 }
 
-.password-container {
+/* .password-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .login-options {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .login-options label {
   display: flex;
   align-items: center;
-  margin: 0;
-  /* 추가적인 마진 제거 */
-  padding: 0;
-  /* 추가적인 패딩 제거 */
+  font-size: 14px;
 }
 
 .login-options input[type="checkbox"] {
   margin-right: 5px;
-  /* 텍스트와의 최소 간격 */
 }
-
-
-
-
 
 .forgot-password {
   font-size: 12px;
@@ -103,14 +102,73 @@
   cursor: pointer;
 }
 
-.member-benefits {
-  display: block;
-  margin-top: 15px;
-  font-size: 12px;
-  color: #666;
-  text-decoration: none;
+
+
+@media (max-width: 768px) {
+  .login-container {
+    max-width: 500px;
+  }
+
+  .login-header h2 {
+    font-size: 22px;
+  }
+
+  .login-subtext {
+    font-size: 13px;
+  }
+
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    font-size: 14px;
+  }
+
+  .login-submit-button,
+  .signup-button {
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .forgot-password {
+    font-size: 11px;
+  }
 }
 
-.login-options label p {
-  width: 300px;
+/* 반응형 설정 - 모바일 (480px 이하) */
+@media (max-width: 480px) {
+  .login-container {
+    max-width: 400px;
+  }
+
+  .login-header h2 {
+    font-size: 20px;
+  }
+
+  .login-subtext {
+    font-size: 12px;
+  }
+
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    font-size: 13px;
+  }
+
+  .login-submit-button,
+  .signup-button {
+    font-size: 14px;
+    padding: 7px;
+  }
+
+  .forgot-password {
+    font-size: 10px;
+  }
+
+  .login-options {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start;
+  }
+
+  .login-options label {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
 }

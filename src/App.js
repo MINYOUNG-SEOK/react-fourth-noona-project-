@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
-import ProductDetail from "./page/ProductDetail";
 import Favorites from "./page/Favorites"; // Favorites 페이지 import
 import Navbar from "./component/Navbar";
 import PrivateRoute from "./route/PrivateRoute";
 import { FavoritesProvider } from "./context/FavoritesContext"; // import FavoritesProvider
+import { Container } from "react-bootstrap";
 
 // 1. 전체 상품 페이지, 로그인, 상품 상세 페이지
 // 1-1. 네비게이션바
@@ -22,16 +22,18 @@ import { FavoritesProvider } from "./context/FavoritesContext"; // import Favori
 
 function App() {
   const [authenticate, setAuthenticate] = useState(false); //true 이면 로그인이 되고 아니면 로그인 안됨
+
   useEffect(() => {
     console.log("로그인 상태 변경", authenticate);
   }, [authenticate]);
 
   return (
+    <Container>
     <FavoritesProvider>
       <div className="div">
         <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
         <Routes>
-          <Route path="/" element={<ProductAll />} />   
+          <Route path="/" element={<ProductAll />} />
           <Route
             path="/login"
             element={<Login setAuthenticate={setAuthenticate} />}
@@ -40,11 +42,11 @@ function App() {
             path="/product/:id"
             element={<PrivateRoute authenticate={authenticate} />}
           />
-          <Route path="/favorites" element={<Favorites />} />{" "}
-          {/* Favorites 경로 추가 */}
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </div>
     </FavoritesProvider>
+    </Container>
   );
 }
 

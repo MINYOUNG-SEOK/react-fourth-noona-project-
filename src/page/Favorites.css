@@ -1,10 +1,16 @@
 .favorites-container {
+    max-width: 1060px;
+    /* 페이지 전체의 최대 너비를 800px로 설정 */
+    margin: 0 auto;
+    /* 중앙 정렬 */
     padding: 20px;
+    /* 페이지 내부 여백 */
+    
 }
 
 .favorites-container h2 {
     display: flex;
-    justify-content: ce;
+    justify-content: center
 }
 
 .item-count {
@@ -18,18 +24,20 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center;
 }
 
 .favorite-item {
     border: none;
     border-radius: 5px;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 250px;
+    max-width: 250px;
     position: relative;
+    margin-bottom: 50px;
 }
+
 
 .image-container {
     position: relative;
@@ -47,14 +55,25 @@
 }
 
 .remove-button {
+    background-color: transparent;
+    /* 배경색을 완전히 투명하게 설정 */
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 340px;
+    /* 휴지통 아이콘을 더 밑으로 내림 */
+    right: 15px;
     border: none;
-    color: #222222;
     padding: 5px;
     cursor: pointer;
+    width: 20px;
+    color: #b9b9b9;
 }
+
+.trash-icon {
+    width: 16px;
+    height: 19px;
+}
+
+
 
 .size-select {
     width: 100%;
@@ -87,8 +106,50 @@
     box-sizing: border-box;
 }
 
-.trash-icon {
-    width: 16px;
-    height: 16px;
-    color: #222222;
+
+/* 반응형 디자인 - 태블릿 */
+@media (max-width: 768px) {
+    .favorites-container {
+        max-width: 90%;
+    }
+
+    .favorites-list {
+        justify-content: center;
+        /* 태블릿에서도 중앙 정렬 유지 */
+    }
+
+    .favorite-item {
+        width: 45%;
+        /* 아이템 크기를 화면 크기에 맞게 조정 */
+    }
+
+    .favorites-add-to-cart-button {
+        width: 100%;
+    }
+}
+
+/* 반응형 디자인 - 모바일 */
+@media (max-width: 480px) {
+    .favorites-container {
+        max-width: 95%;
+    }
+
+    .favorites-list {
+        justify-content: center;
+        /* 모바일에서도 중앙 정렬 유지 */
+    }
+
+    .favorite-item {
+        width: 45%,
+        /* 모바일에서는 한 줄에 하나의 아이템만 표시 */
+    }
+
+    .favorites-add-to-cart-button {
+        width: 100%;
+    }
+
+    .remove-button {
+        top: 300px;
+        /* 모바일에서 아이콘 위치 조정 */
+    }
 }

@@ -1,11 +1,7 @@
 .favorites-container {
     max-width: 1060px;
-    /* 페이지 전체의 최대 너비를 800px로 설정 */
     margin: 0 auto;
-    /* 중앙 정렬 */
     padding: 20px;
-    /* 페이지 내부 여백 */
-    
 }
 
 .favorites-container h2 {
@@ -34,6 +30,7 @@
     flex-direction: column;
     align-items: center;
     max-width: 250px;
+    width: 100%;
     position: relative;
     margin-bottom: 50px;
 }
@@ -56,10 +53,8 @@
 
 .remove-button {
     background-color: transparent;
-    /* 배경색을 완전히 투명하게 설정 */
     position: absolute;
     top: 340px;
-    /* 휴지통 아이콘을 더 밑으로 내림 */
     right: 15px;
     border: none;
     padding: 5px;
@@ -73,11 +68,12 @@
     height: 19px;
 }
 
-
+.favorites-product-info {
+    width: 250px;
+}
 
 .size-select {
     width: 100%;
-    /* 선택박스의 너비를 카드에 맞춤 */
     padding: 10px;
     font-size: 16px;
     margin-top: 10px;
@@ -86,10 +82,8 @@
     box-sizing: border-box;
 }
 
-
 .favorites-add-to-cart-button {
-    width: 250px;
-    /* 추가 버튼을 카드 너비에 맞춤 */
+    width: 100%;
     background-color: #222222;
     border-radius: 5px;
     color: #fff;
@@ -109,47 +103,56 @@
 
 /* 반응형 디자인 - 태블릿 */
 @media (max-width: 768px) {
-    .favorites-container {
-        max-width: 90%;
-    }
-
     .favorites-list {
-        justify-content: center;
-        /* 태블릿에서도 중앙 정렬 유지 */
+        grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 */
     }
 
+    .favorites-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+  
     .favorite-item {
-        width: 45%;
-        /* 아이템 크기를 화면 크기에 맞게 조정 */
+        width: 100%; /* 그리드 아이템 크기를 그리드 셀에 맞게 */
     }
 
+
+    .size-select {
+        font-size: 14px; /* 태블릿 크기에 맞게 폰트 크기 조정 */
+    }
+  
     .favorites-add-to-cart-button {
-        width: 100%;
+        padding: 10px;
+        font-size: 14px;
     }
 }
-
+  
 /* 반응형 디자인 - 모바일 */
 @media (max-width: 480px) {
-    .favorites-container {
-        max-width: 95%;
-    }
-
     .favorites-list {
-        justify-content: center;
-        /* 모바일에서도 중앙 정렬 유지 */
+        grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개 */
     }
 
+    .favorites-container {
+        padding: 10px;
+        max-width: 100%;
+    }
+  
     .favorite-item {
-        width: 45%,
-        /* 모바일에서는 한 줄에 하나의 아이템만 표시 */
+        width: 100%; /* 그리드 아이템 크기를 그리드 셀에 맞게 */
     }
 
+    .size-select {
+        font-size: 12px; /* 모바일 크기에 맞게 폰트 크기 조정 */
+    }
+  
     .favorites-add-to-cart-button {
-        width: 100%;
+        padding: 8px;
+        font-size: 14px;
     }
-
+  
     .remove-button {
-        top: 300px;
-        /* 모바일에서 아이콘 위치 조정 */
+        bottom: 10px;
+        right: 10px;
     }
 }

@@ -1,15 +1,18 @@
 import React from "react";
 import "../page/Login.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Login = ({ setAuthenticate }) => {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location.state?.from?.pathname || "/"; 
 
   const loginUser = (event) => {
     event.preventDefault();
     console.log("login user function issue");
     setAuthenticate(true);
-    navigate("/");
+    navigate(from);
   };
 
   return (

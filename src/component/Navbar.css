@@ -109,6 +109,14 @@
     left: 0;
 }
 
+.slide-menu li {
+    display: none;
+}
+
+.close-btn {
+    display: none;
+}
+
 @media screen and (max-width: 1000px) {
 
     .header-icons {
@@ -149,7 +157,6 @@
     }
 
     .slide-menu {
-
         position: fixed;
         top: 0;
         left: -250px;

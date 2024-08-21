@@ -16,7 +16,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
 
   const getProductDetail = async () => {
-    let url = `http://localhost:5005/products/${id}`;
+    let url = `https://my-json-server.typicode.com/MINYOUNG-SEOK/react-fourth-noona-project-/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     console.log(data);

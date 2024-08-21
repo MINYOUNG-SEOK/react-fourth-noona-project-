@@ -47,7 +47,7 @@ html {
   max-width: 80%;
 }
 
-/* 
+
 @media (max-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -75,4 +75,4 @@ html {
   .slide img {
     height: auto;
   }
-} */
+}

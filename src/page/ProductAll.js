@@ -10,29 +10,20 @@ const ProductAll = () => {
   const [productList, setProductList] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [query] = useSearchParams();
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   console.log(query.get("q"));
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("http://localhost:5005/products");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        const data = await response.json();
+    fetch(
+      " https://my-json-server.typicode.com/MINYOUNG-SEOK/react-fourth-noona-project-/products"
+    )
+      .then((response) => response.json())
+      .then((data) => {
         setProductList(data);
-        setLoading(false);
-      } catch (error) {
-        setError(error);
-        setLoading(false);
+      })
+      .catch((error) => {
         console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+      });
   }, []);
 
   useEffect(() => {
@@ -73,22 +64,13 @@ const ProductAll = () => {
       text: "F/W 2024 Kids Style",
     },
   ];
-
-  if (loading) {
-    return <div>로딩 중...</div>; // 로딩 상태를 사용자에게 표시
-  }
-
-  if (error) {
-    return <div>데이터를 불러오는 중 오류가 발생했습니다: {error.message}</div>; // 오류 메시지 표시
-  }
-
   return (
     <div>
       <div className="homepage-slider">
         <Slider {...sliderSettings}>
           {slides.map((slide, index) => (
             <div key={index} className="slide">
-              <img src={slide.img} alt={`Slide ${index}`} />
+              <img src={slide.img} alt={slide.img} />
               <div className="slide-text">
                 <h2>{slide.text}</h2>
               </div>

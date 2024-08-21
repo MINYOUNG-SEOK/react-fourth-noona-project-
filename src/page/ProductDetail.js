@@ -11,19 +11,15 @@ const ProductDetail = () => {
   const [product, setProduct] = useState(null);
   const [liked, setLiked] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
-  const { addFavorite, removeFavorite, isFavorite } = useFavorites(); // 즐겨찾기 관련 함수와 상태
-  
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
 
-
-
-  
   const getProductDetail = async () => {
     let url = `http://localhost:5005/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     console.log(data);
     setProduct(data);
-    setLiked(isFavorite(data.id)); // 이미 즐겨찾기에 있는지 확인
+    setLiked(isFavorite(data.id));
   };
 
   useEffect(() => {
@@ -83,15 +79,15 @@ const ProductDetail = () => {
           ))}
         </div>
         <div className="size-info">
-        <div className="size-guide">
-        <span className="guide-icon">✎</span>
-        <span className="guide-text">사이즈 가이드</span>
+          <div className="size-guide">
+            <span className="guide-icon">✎</span>
+            <span className="guide-text">사이즈 가이드</span>
+          </div>
+          <div className="size-alert">
+            <span className="alert-icon">✉</span>
+            <span className="alert-text">원하는 사이즈가 품절인가요?</span>
+          </div>
         </div>
-        <div className="size-alert">
-        <span className="alert-icon">✉</span>
-        <span className="alert-text">원하는 사이즈가 품절인가요?</span>
-        </div>
-      </div>
 
         <button className="add-to-cart-button">추가</button>
       </div>

@@ -5,10 +5,9 @@ body {
     background-color: #faf9f8;
 }
 
-
 .container {
-    width: 100%; 
-    max-width: 200vh; 
+    width: 100%;
+    max-width: 200vh;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;

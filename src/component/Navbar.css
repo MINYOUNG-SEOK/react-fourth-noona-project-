@@ -1,31 +1,8 @@
 .navbar {
     width: 100%;
     position: relative;
-}
-
-.top-left-nav {
-    position: absolute;
-    left: 20px;
-    top: 10px;
-    padding: 10px 20px;
-}
-
-.left-links {
-    list-style-type: none;
-    display: flex;
-    gap: 15px;
     padding: 0;
     margin: 0;
-    font-size: 15px;
-    color: #333;
-}
-
-.left-links li {
-    cursor: pointer;
-}
-
-.left-links li:hover {
-    text-decoration: underline;
 }
 
 .logo-area {
@@ -56,7 +33,6 @@
     cursor: pointer;
     margin-right: 20px;
     font-weight: 600;
-
 }
 
 .menu-list li:hover {
@@ -68,26 +44,29 @@
 .search-area {
     display: flex;
     align-items: center;
-    position: relative; /* 아이콘과 input을 쉽게 배치하기 위해 relative 사용 */
+    position: relative;
+}
+
+.search-image {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
 }
 
 .search-input {
-    padding-left: 30px;
+    padding-left: 35px;
     padding-bottom: 5px;
     border: none;
     border-bottom: 1px solid #000;
     background-color: transparent;
-    width: 150px;
+    width: 200px;
 }
-
 
 .search-input:focus {
     outline: none;
-}
-
-.search-area svg {
-    position: absolute;
-    bottom: 5px;
 }
 
 .menu-area {
@@ -113,7 +92,7 @@
 }
 
 .icon-label {
-    margin-left: px;
+    margin-left: 5px;
     border-bottom: 1px solid transparent;
 }
 
@@ -121,10 +100,100 @@
     border-bottom: 1px solid black;
 }
 
-.member-notice {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 13px;
+.hamburger-image {
+    width: 33px;
+    height: 25px;
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    left: 0;
 }
 
+@media screen and (max-width: 1000px) {
+
+    .header-icons {
+        margin-left: 0;
+    }
+
+    .hamburger-bar {
+        display: block;
+        cursor: pointer;
+        display: flex-start;
+    }
+
+    .hamburger-image {
+        display: block;
+    }
+
+    .logo-area {
+        position: absolute;
+        left: 50px;
+        top: -2px;
+    }
+
+    .menu-area {
+        display: none;
+    }
+
+    .header-icons>div .icon-label {
+        display: none;
+    }
+
+    .header-icons>div {
+        margin-right: 15px;
+    }
+
+    .logo-area img {
+        height: 27px;
+        width: auto;
+    }
+
+    .slide-menu {
+
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
+        overflow-y: auto;
+        transition: left 0.3s ease;
+        z-index: 1000;
+    }
+
+    .slide-menu.open {
+        left: 0;
+    }
+
+    .close-btn {
+        text-align: right;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        margin-right: 10px;
+    }
+
+    .menu-list {
+        list-style-type: none;
+        padding: 20px;
+        margin: 0;
+        display: block;
+    }
+
+    .menu-list li {
+        padding: 15px 0;
+        cursor: pointer;
+        font-size: 18px;
+        display: block;
+    }
+
+    .menu-list li:hover {
+        background-color: #f0f0f0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-input {
+        width: 100px;
+    }
+}

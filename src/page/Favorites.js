@@ -21,7 +21,6 @@ const Favorites = () => {
   };
 
   const handleAddToCart = (id) => {
-    // 장바구니에 추가하는 로직
     console.log(`상품 ${id}을(를) 장바구니에 추가`);
   };
 

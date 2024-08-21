@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "../component/Navbar.css";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
+  const [searchTerm, setSearchTerm] = useState("");
+
   const menuList = [
     "Women",
     "Men",
@@ -21,10 +20,8 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   const goToLogin = () => {
     if (authenticate) {
-      // 로그아웃 확인 알림창
       const confirmed = window.confirm("로그아웃 하시겠습니까?");
       if (confirmed) {
-        // 로그아웃 처리
         setAuthenticate(false);
         navigate("/");
       }
@@ -32,7 +29,6 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       navigate("/login");
     }
   };
-
 
   const goToHome = () => {
     navigate("/");
@@ -44,25 +40,43 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   const search = (event) => {
     if (event.key === "Enter") {
-      let keyword = event.target.value;
-      console.log("검색어:", keyword);
-      navigate(`/?q=${keyword}`);
-      setSearchTerm(""); // 검색 후 검색어 상태 초기화
+      let keyword = event.target.value.trim();
+      if (keyword) {
+        console.log("검색어:", keyword);
+        navigate(`/?q=${keyword}`);
+      } else {
+      }
+      setSearchTerm("");
     }
+  };
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
   };
 
   return (
     <div className="navbar">
       <div className="header-icons">
+        <div className="hamburger-bar" onClick={toggleMenu}>
+          <img
+            src="/img/hamburger-icon.png"
+            alt="menu"
+            className="hamburger-image"
+          />
+        </div>
         <div className="search-area">
-          <FontAwesomeIcon icon={faSearch} />
+          <img
+            src="/img/search-icon.png"
+            alt="search"
+            className="search-image"
+          />
           <input
             className="search-input"
             type="text"
             placeholder="검색"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={search}
+            onKeyUp={search}
           />
         </div>
         <div className="login-button" onClick={goToLogin}>
@@ -83,6 +97,17 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           />
           <div className="icon-label">쇼핑백</div>
         </div>
+      </div>
+
+      <div className={`slide-menu ${menuOpen ? "open" : ""}`}>
+        <div className="close-btn" onClick={toggleMenu}>
+          X
+        </div>
+        <ul className="menu-list">
+          {menuList.map((menu, index) => (
+            <li key={index}>{menu}</li>
+          ))}
+        </ul>
       </div>
 
       <div className="logo-area" onClick={goToHome}>

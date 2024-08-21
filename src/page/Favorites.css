@@ -35,7 +35,6 @@
     margin-bottom: 50px;
 }
 
-
 .image-container {
     position: relative;
     cursor: pointer;
@@ -101,56 +100,53 @@
 }
 
 
-/* 반응형 디자인 - 태블릿 */
 @media (max-width: 768px) {
     .favorites-list {
-        grid-template-columns: repeat(3, 1fr); /* 한 줄에 3개 */
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .favorites-container {
         padding: 10px;
         max-width: 100%;
     }
-  
-    .favorite-item {
-        width: 100%; /* 그리드 아이템 크기를 그리드 셀에 맞게 */
-    }
 
+    .favorite-item {
+        width: 100%;
+    }
 
     .size-select {
-        font-size: 14px; /* 태블릿 크기에 맞게 폰트 크기 조정 */
+        font-size: 14px;
     }
-  
+
     .favorites-add-to-cart-button {
         padding: 10px;
         font-size: 14px;
     }
 }
-  
-/* 반응형 디자인 - 모바일 */
+
 @media (max-width: 480px) {
     .favorites-list {
-        grid-template-columns: repeat(2, 1fr); /* 한 줄에 2개 */
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .favorites-container {
         padding: 10px;
         max-width: 100%;
     }
-  
+
     .favorite-item {
-        width: 100%; /* 그리드 아이템 크기를 그리드 셀에 맞게 */
+        width: 100%;
     }
 
     .size-select {
-        font-size: 12px; /* 모바일 크기에 맞게 폰트 크기 조정 */
+        font-size: 12px;
     }
-  
+
     .favorites-add-to-cart-button {
         padding: 8px;
         font-size: 14px;
     }
-  
+
     .remove-button {
         bottom: 10px;
         right: 10px;

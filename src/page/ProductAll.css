@@ -1,77 +1,79 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* 가로 스크롤 제거 */
-  }
-  
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
-    max-width: 100%;
-    margin: 0 auto;
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 .homepage-slider {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
-    overflow: hidden; /* 가로 스크롤 방지 */
+  position: relative;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .slide {
-    margin-top: 20px;
-    position: relative;
+  margin-top: 20px;
+  position: relative;
 }
 
 .slide img {
-    width: 100%;
-    max-width: 175vh;
-    height: 90vh;
-    object-fit: cover;
-    object-position: top;
-    display: block;
-    margin: 0 auto;
+  width: 100%;
+  /* max-width: 170vh; */
+  height: 90vh;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  margin: 0 auto;
 }
 
 .slide-text {
-    position: absolute;
-    bottom: 30%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 3rem;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center; 
-    max-width: 80%;
+  position: absolute;
+  bottom: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 2.5rem;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  max-width: 80%;
 }
 
 @media (max-width: 768px) {
-    .product-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  
-    .slide-text {
-      font-size: 1.5rem 
-    }
-  
-    .slide img {
-      height: 50vh; 
-    }
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
 
-  @media (max-width: 480px) {
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr); 
-    }
-  
-    .slide-text {
-      font-size: 1.2rem; 
-    }
-  
-    .slide img {
-      height: 40vh;
-    }
+  .slide-text {
+    bottom: 10%;
+    font-size: 1rem
   }
+
+  .slide img {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .slide-text {
+    font-size: 0.8rem;
+  }
+
+  .slide img {
+    height: 40vh;
+  }
+}

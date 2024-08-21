@@ -8,13 +8,10 @@ const ProductCard = ({ item }) => {
     navigate(`/product/${item.id}`);
   };
 
-
   return (
     <div className="product-card">
       <div className="image-container" onClick={showDetail}>
         <img src={item?.img} alt={item?.title} className="product-image" />
-
-       
       </div>
       <div className="list-product-info">
         <div className="product-label">

@@ -9,16 +9,15 @@ import Slider from "react-slick";
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const [query] = useSearchParams(); // 쿼리 파라미터 가져오기
+  const [query] = useSearchParams();
 
-  console.log(query.get("q")); // 검색어 출력
+  console.log(query.get("q"));
 
   useEffect(() => {
-    // JSON 데이터를 로드하는 부분
     fetch("http://localhost:5005/products")
       .then((response) => response.json())
       .then((data) => {
-        setProductList(data); // 전체 데이터 설정
+        setProductList(data);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -26,27 +25,27 @@ const ProductAll = () => {
   }, []);
 
   useEffect(() => {
-    const searchQuery = query.get("q"); // 쿼리 파라미터에서 검색어 가져오기
+    const searchQuery = query.get("q");
 
     if (searchQuery) {
       const filtered = productList.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setFilteredProducts(filtered); // 필터링된 결과를 상태로 설정
+      setFilteredProducts(filtered);
     } else {
-      setFilteredProducts(productList); // 검색어가 없을 경우 전체 리스트를 보여줌
+      setFilteredProducts(productList);
     }
-  }, [query, productList]); // 검색어(query)나 전체 데이터(productList)가 변경될 때마다 실행
+  }, [query, productList]);
 
   const sliderSettings = {
     dots: true,
-    infinite: true, // 마지막에서 첫 번째로 부드럽게 연결
-    speed: 300, // 슬라이드 전환 속도
+    infinite: true,
+    speed: 300,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 2500, // 자동 슬라이드 속도
-    cssEase: "linear", // 전환 애니메이션을 선형으로 변경하여 더 부드럽게 전환
+    autoplaySpeed: 2500,
+    cssEase: "linear",
   };
 
   const slides = [

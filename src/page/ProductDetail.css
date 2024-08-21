@@ -59,7 +59,6 @@
   margin-bottom: 20px;
 }
 
-
 .size-button {
   margin: 5px;
   padding: 10px 15px;
@@ -92,7 +91,8 @@
   margin-bottom: 20px;
 }
 
-.size-guide, .size-alert {
+.size-guide,
+.size-alert {
   display: flex;
   align-items: center;
   font-size: 14px;
@@ -100,18 +100,15 @@
   cursor: pointer;
 }
 
-.guide-text, .alert-text {
-  text-decoration: underline; /* 텍스트에만 밑줄 추가 */
-}
-
-.guide-icon, .alert-icon {
-  margin-right: 5px;
-  text-decoration: none; /* 아이콘에는 밑줄 제거 */
+.guide-text,
+.alert-text {
+  text-decoration: underline;
 }
 
 .guide-icon,
 .alert-icon {
   margin-right: 5px;
+  text-decoration: none;
 }
 
 .add-to-cart-button {

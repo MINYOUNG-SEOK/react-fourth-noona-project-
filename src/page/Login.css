@@ -1,7 +1,8 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-x: hidden;
 }
 
 .login-container {
@@ -50,12 +51,6 @@ body, html {
 .required {
   color: red;
 }
-
-/* .password-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-} */
 
 .login-options {
   display: flex;
@@ -133,7 +128,6 @@ body, html {
   }
 }
 
-/* 반응형 설정 - 모바일 (480px 이하) */
 @media (max-width: 480px) {
   .login-container {
     max-width: 400px;
@@ -163,7 +157,7 @@ body, html {
   }
 
   .login-options {
-    flex-direction: column; /* Stack items vertically */
+    flex-direction: column;
     align-items: flex-start;
   }
 

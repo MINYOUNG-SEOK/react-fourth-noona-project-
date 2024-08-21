@@ -4,7 +4,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import "../component/Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ authenticate, setAuthenticate }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState(""); // 검색어 상태 관리
   const menuList = [
@@ -20,8 +20,19 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const goToLogin = () => {
-    navigate("/login");
+    if (authenticate) {
+      // 로그아웃 확인 알림창
+      const confirmed = window.confirm("로그아웃 하시겠습니까?");
+      if (confirmed) {
+        // 로그아웃 처리
+        setAuthenticate(false);
+        navigate("/");
+      }
+    } else {
+      navigate("/login");
+    }
   };
+
 
   const goToHome = () => {
     navigate("/");
@@ -56,7 +67,9 @@ const Navbar = () => {
         </div>
         <div className="login-button" onClick={goToLogin}>
           <img src="/img/login-icon.png" alt="login" className="header-icon" />
-          <div className="icon-label">로그인</div>
+          <div className="icon-label">
+            {authenticate ? "로그아웃" : "로그인"}
+          </div>
         </div>
         <div className="favorites-button" onClick={goToFavorites}>
           <img src="/img/like-icon.png" alt="like" className="header-icon" />

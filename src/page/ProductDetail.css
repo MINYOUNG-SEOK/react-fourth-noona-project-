@@ -32,7 +32,6 @@
   font-size: 20px;
   font-weight: 400;
   flex-grow: 1;
-  /* 상품명이 남은 공간을 차지하도록 설정 */
 }
 
 .like-button {

@@ -35,6 +35,11 @@
     font-weight: 600;
 }
 
+.menu-list li:last-child {
+    margin-right: 0;
+}
+
+
 .menu-list li:hover {
     text-decoration: underline;
     text-decoration-thickness: 1px;

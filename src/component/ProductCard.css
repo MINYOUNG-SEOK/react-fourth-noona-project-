@@ -1,7 +1,18 @@
+.image-container {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
 .product-card {
+  margin-top: 20px;
+  position: relative;
   width: 100%;
   border: none;
-  padding: 10px;
   overflow: hidden;
 }
 
@@ -13,17 +24,6 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-}
-
-
-.product-card {
-  position: relative;
-  width: 100%;
-}
-
-.image-container {
-  position: relative;
-  overflow: hidden;
 }
 
 .like-icon {
@@ -38,7 +38,6 @@
 .like-icon.liked {
   color: red;
 }
-
 
 .product-image {
   width: 100%;

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import "../component/Navbar.css";
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
@@ -101,7 +103,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
       <div className={`slide-menu ${menuOpen ? "open" : ""}`}>
         <div className="close-btn" onClick={toggleMenu}>
-          X
+        <FontAwesomeIcon icon={faTimes} />
         </div>
         <ul className="menu-list">
           {menuList.map((menu, index) => (

@@ -143,6 +143,7 @@
     .size-select {
         font-size: 14px;
         padding: 10px;
+        height: 40px;
     }
 
     .favorites-add-to-cart-button {
@@ -168,6 +169,7 @@
     .size-select {
         font-size: 12px;
         padding: 10px;
+        height: 40px;
     }
 
     .favorites-add-to-cart-button {

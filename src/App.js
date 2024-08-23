@@ -7,6 +7,7 @@ import Favorites from "./page/Favorites";
 import Cart from "./page/Cart";
 import Navbar from "./component/Navbar";
 import PrivateRoute from "./route/PrivateRoute";
+import ProductDetail from "./page/ProductDetail";
 import { FavoritesProvider } from "./context/FavoritesContext";
 import { CartProvider } from "./context/CartContext";
 import { Container } from "react-bootstrap";

@@ -40,6 +40,10 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     navigate("/favorites");
   };
 
+  const goToCart = () => {
+    navigate("/cart");
+  }
+
   const search = (event) => {
     if (event.key === "Enter") {
       let keyword = event.target.value.trim();
@@ -91,13 +95,13 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           <img src="/img/like-icon.png" alt="like" className="header-icon" />
           <div className="icon-label">즐겨찾기</div>
         </div>
-        <div className="cart-button">
+        <div className="cart-button" onClick={goToCart}>
           <img
             src="/img/shoppingbag-icon.png"
             alt="shoppingbag"
             className="header-icon"
           />
-          <div className="icon-label">쇼핑백</div>
+          <div className="icon-label">장바구니</div>
         </div>
       </div>
 

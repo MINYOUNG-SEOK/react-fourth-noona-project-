@@ -48,8 +48,24 @@ function App() {
                 path="/product/:id"
                 element={<PrivateRoute authenticate={authenticate} />}
               />
-              <Route path="/favorites" element={<Favorites />} />
-              <Route path="/cart" element={<Cart />} />
+               <Route
+                path="/favorites"
+                element={
+                  <PrivateRoute 
+                    authenticate={authenticate}
+                    component={Favorites} 
+                  />
+                }
+              />
+              <Route
+                path="/cart"
+                element={
+                  <PrivateRoute 
+                    authenticate={authenticate}
+                    component={Cart} 
+                  />
+                }
+              />
             </Routes>
           </div>
         </CartProvider>

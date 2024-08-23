@@ -5,6 +5,7 @@
 }
 
 .favorites-container h2 {
+    /* margin-top: 30px; */
     display: flex;
     justify-content: center
 }
@@ -99,6 +100,27 @@
     box-sizing: border-box;
 }
 
+.empty-favorites {
+    margin-top: 70px;
+    text-align: center;
+    color: #555;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.empty-favorites-message {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 20px;
+    color: #333;
+}
+
+.empty-favorites-suggestion {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #777;
+}
+
 
 @media (max-width: 768px) {
     .favorites-list {
@@ -108,6 +130,10 @@
     .favorites-container {
         padding: 10px;
         max-width: 100%;
+    }
+
+    .favorites-container h2 {
+        margin-top: 30px;
     }
 
     .favorite-item {

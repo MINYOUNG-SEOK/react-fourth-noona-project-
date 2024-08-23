@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
 import { faHeart as faHeartSolid } from "@fortawesome/free-solid-svg-icons";
 import { useFavorites } from "../context/FavoritesContext";
+import { useCart } from "../context/CartContext";
 
 const ProductDetail = () => {
   let { id } = useParams();
@@ -12,6 +13,7 @@ const ProductDetail = () => {
   const [liked, setLiked] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
   const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const { addToCart } = useCart();
 
   const [loading, setLoading] = useState(true);
 
@@ -41,6 +43,22 @@ const ProductDetail = () => {
     }
     setLiked(!liked);
   };
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("사이즈를 선택해주세요.");
+      return;
+    }
+
+    const productToAdd = {
+      ...product,
+      selectedSize,
+    };
+
+    addToCart(productToAdd);
+    alert("장바구니에 추가되었습니다.");
+  };
+
 
   if (loading) {
     return <div>로딩 중...</div>;
@@ -96,7 +114,7 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        <button className="add-to-cart-button">추가</button>
+        <button className="add-to-cart-button" onClick={handleAddToCart}>추가</button>
       </div>
     </div>
   );

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import {  BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProductAll from "./page/ProductAll";
 import Login from "./page/Login";
-import Favorites from "./page/Favorites"; // Favorites 페이지 import
+import Favorites from "./page/Favorites";
+import Cart from "./page/Cart";
 import Navbar from "./component/Navbar";
 import PrivateRoute from "./route/PrivateRoute";
-import { FavoritesProvider } from "./context/FavoritesContext"; // import FavoritesProvider
+import { FavoritesProvider } from "./context/FavoritesContext";
+import { CartProvider } from "./context/CartContext";
 import { Container } from "react-bootstrap";
 
 // 1. 전체 상품 페이지, 로그인, 상품 상세 페이지
@@ -29,23 +31,29 @@ function App() {
 
   return (
     <Container>
-    <FavoritesProvider>
-      <div className="div">
-        <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
-        <Routes>
-          <Route path="/" element={<ProductAll />} />
-          <Route
-            path="/login"
-            element={<Login setAuthenticate={setAuthenticate} />}
-          />
-          <Route
-            path="/product/:id"
-            element={<PrivateRoute authenticate={authenticate} />}
-          />
-          <Route path="/favorites" element={<Favorites />} />
-        </Routes>
-      </div>
-    </FavoritesProvider>
+      <FavoritesProvider>
+        <CartProvider>
+          <div className="div">
+            <Navbar
+              authenticate={authenticate}
+              setAuthenticate={setAuthenticate}
+            />
+            <Routes>
+              <Route path="/" element={<ProductAll />} />
+              <Route
+                path="/login"
+                element={<Login setAuthenticate={setAuthenticate} />}
+              />
+              <Route
+                path="/product/:id"
+                element={<PrivateRoute authenticate={authenticate} />}
+              />
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </div>
+        </CartProvider>
+      </FavoritesProvider>
     </Container>
   );
 }

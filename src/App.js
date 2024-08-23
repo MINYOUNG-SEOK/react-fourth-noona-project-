@@ -23,7 +23,7 @@ import { Container } from "react-bootstrap";
 // 9. 상품을 검색할 수 있다
 
 function App() {
-  const [authenticate, setAuthenticate] = useState(false); //true 이면 로그인이 되고 아니면 로그인 안됨
+  const [authenticate, setAuthenticate] = useState(false); // true 이면 로그인이 되고 아니면 로그인 안됨
 
   useEffect(() => {
     console.log("로그인 상태 변경", authenticate);
@@ -46,25 +46,15 @@ function App() {
               />
               <Route
                 path="/product/:id"
-                element={<PrivateRoute authenticate={authenticate} />}
+                element={<PrivateRoute authenticate={authenticate} component={ProductDetail} />}
               />
-               <Route
+              <Route
                 path="/favorites"
-                element={
-                  <PrivateRoute 
-                    authenticate={authenticate}
-                    component={Favorites} 
-                  />
-                }
+                element={<PrivateRoute authenticate={authenticate} component={Favorites} />}
               />
               <Route
                 path="/cart"
-                element={
-                  <PrivateRoute 
-                    authenticate={authenticate}
-                    component={Cart} 
-                  />
-                }
+                element={<PrivateRoute authenticate={authenticate} component={Cart} />}
               />
             </Routes>
           </div>

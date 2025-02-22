@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../page/Login.css";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -8,9 +8,15 @@ const Login = ({ setAuthenticate }) => {
 
   const from = location.state?.from?.pathname || "/";
 
+  // ✅ 이메일 & 비밀번호 기본값 설정
+  const [email, setEmail] = useState("a@a");
+  const [password, setPassword] = useState("a");
+
   const loginUser = (event) => {
     event.preventDefault();
     console.log("login user function issue");
+    console.log("입력된 이메일:", email);
+    console.log("입력된 비밀번호:", password);
     setAuthenticate(true);
     navigate(from);
   };
@@ -26,11 +32,23 @@ const Login = ({ setAuthenticate }) => {
       <form className="login-form" onSubmit={loginUser}>
         <label>
           이메일 <span className="required">*</span>
-          <input type="email" placeholder="이메일" required />
+          <input
+            type="email"
+            placeholder="이메일"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </label>
         <label>
           비밀번호 <span className="required">*</span>
-          <input type="password" placeholder="비밀번호" required />
+          <input
+            type="password"
+            placeholder="비밀번호"
+            required
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </label>
         <div className="login-options">
           <label>
